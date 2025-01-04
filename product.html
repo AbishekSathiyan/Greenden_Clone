@@ -7,7 +7,7 @@
   <link rel="icon" href="./Assets/Title.png" type="image/png">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <!-- Add Font Awesome for Icons -->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 </head>
 <body class="bg-gray-100 text-gray-800">
   <!-- Navbar -->
@@ -19,10 +19,24 @@
           <li><a href="index.html" class="hover:underline">Home</a></li>
           <li><a href="product.html" class="hover:underline">Products</a></li>
           <li><a href="contact.html" class="hover:underline">Contact</a></li>
+          <li><button id="open-nav" class="bg-green-500 text-white px-4 py-2 rounded">Menu</button></li>
         </ul>
       </nav>
     </div>
   </header>
+
+  <!-- Side Navbar -->
+  <section id="sidenav" class="bg-green-100 fixed z-20 top-0 right-0" style="width: 50%; height: 100vh; right: -50%;">
+    <div class="text-right p-5">
+      <p id="close-nav" class="inline cursor-pointer">X</p>
+    </div>
+    
+    <ul class="flex flex-col gap-10 items-center text-gray-600">
+      <li><a href="./index.html" class="text-gray-600 hover:text-green-500">Home</a></li>
+      <li><a href="./product.html" class="text-gray-600 hover:text-green-500">Products</a></li>
+      <li><a href="./contact.html" class="text-gray-600 hover:text-green-500">Contact</a></li>
+    </ul>
+  </section>
 
   <!-- Search Bar -->
   <section class="py-6">
@@ -30,6 +44,7 @@
       <h2 class="text-2xl font-bold mb-4">Our Products</h2>
       <input
         type="text"
+        id="search-input"
         placeholder="Search for a Product..."
         class="w-1/2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
       />
@@ -37,42 +52,42 @@
   </section>
 
   <!-- Products Grid -->
-<section class="py-6">
-  <div class="container mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-    <!-- Product Card 1 -->
-    <div class="bg-white rounded-lg shadow-md overflow-hidden">
-      <img src="./Assets/bestseller_1.png" class="inline hover:shadow-xl transform hover:-translate-y-2" alt="Rose Plant">
-      <div class="p-4">
-        <h3 class="text-lg font-semibold">Rose Plant</h3>
-        <p class="text-gray-600">$20</p>
+  <section class="py-6">
+    <div class="container mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6" id="product-grid">
+      <!-- Product Card 1 -->
+      <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="./Assets/bestseller_1.png" class="inline hover:shadow-xl transform hover:-translate-y-2" alt="Rose Plant">
+        <div class="p-4">
+          <h3 class="text-lg font-semibold">Rose Plant</h3>
+          <p class="text-gray-600">$20</p>
+        </div>
+      </div>
+      <!-- Product Card 2 -->
+      <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="./Assets/bestseller_2.png" class="inline hover:shadow-xl transform hover:-translate-y-2" alt="Lily Plant">
+        <div class="p-4">
+          <h3 class="text-lg font-semibold">Lily Plant</h3>
+          <p class="text-gray-600">$20</p>
+        </div>
+      </div>
+      <!-- Product Card 3 -->
+      <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="./Assets/bestseller_3.png" class="inline hover:shadow-xl transform hover:-translate-y-2" alt="Hibiscus Rose">
+        <div class="p-4">
+          <h3 class="text-lg font-semibold">Hibiscus Rose</h3>
+          <p class="text-gray-600">$20</p>
+        </div>
+      </div>
+      <!-- Product Card 4 -->
+      <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="./Assets/bestseller_4.png" class="inline hover:shadow-xl transform hover:-translate-y-2" alt="New Pet Plant">
+        <div class="p-4">
+          <h3 class="text-lg font-semibold">New Pet Plant</h3>
+          <p class="text-gray-600">$20</p>
+        </div>
       </div>
     </div>
-    <!-- Product Card 2 -->
-    <div class="bg-white rounded-lg shadow-md overflow-hidden">
-      <img src="./Assets/bestseller_2.png" class="inline hover:shadow-xl transform hover:-translate-y-2" alt="Lily Plant">
-      <div class="p-4">
-        <h3 class="text-lg font-semibold">Lily Plant</h3>
-        <p class="text-gray-600">$20</p>
-      </div>
-    </div>
-    <!-- Product Card 3 -->
-    <div class="bg-white rounded-lg shadow-md overflow-hidden">
-      <img src="./Assets/bestseller_3.png" class="inline hover:shadow-xl transform hover:-translate-y-2" alt="Hibiscus Rose">
-      <div class="p-4">
-        <h3 class="text-lg font-semibold">Hibiscus Rose</h3>
-        <p class="text-gray-600">$20</p>
-      </div>
-    </div>
-    <!-- Product Card 4 -->
-    <div class="bg-white rounded-lg shadow-md overflow-hidden">
-      <img src="./Assets/bestseller_4.png" class="inline hover:shadow-xl transform hover:-translate-y-2" alt="New Pet Plant">
-      <div class="p-4">
-        <h3 class="text-lg font-semibold">New Pet Plant</h3>
-        <p class="text-gray-600">$20</p>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
   <!-- Footer Section -->
   <section class="bg-green-100 p-10 flex flex-col gap-5 text-center">
@@ -80,36 +95,53 @@
     <p>The Standard chunk of Lorem ipsum dolor sit amet consectetur.</p>
     <p>&copy; 2024 Greenden_Abi. All Rights Reserved.</p>
 
-
-  <!-- Contact Section -->
-  <div class="flex justify-center gap-6">
-    
-    <!-- Email Icon -->
-    <p class="hover:text-blue-900">
+    <!-- Contact Section -->
+    <div class="flex justify-center gap-6">
+      <!-- Email Icon -->
+      <p class="hover:text-blue-900">
         <a href="mailto:abishek.sathiyan.2002@gmail.com?subject=Inquiry&body=Hello, I have a question about...">
-            <i class="fas fa-envelope text-2xl"></i>
+          <i class="fas fa-envelope text-2xl"></i>
         </a>
-    </p>
+      </p>
 
-    <!-- WhatsApp Icon -->
-    <p class="hover:text-blue-900">
+      <!-- WhatsApp Icon -->
+      <p class="hover:text-blue-900">
         <a href="https://wa.me/7092085864?text=Hello, I have a question about...">
-            <i class="fab fa-whatsapp text-2xl"></i>
+          <i class="fab fa-whatsapp text-2xl"></i>
         </a>
-    </p>
+      </p>
 
-    <!-- LinkedIn Icon -->
-    <a href="https://www.linkedin.com/in/abishek2204/" target="_blank" title="LinkedIn" class="text-2xl text-blue-600 hover:text-blue-800">
+      <!-- LinkedIn Icon -->
+      <a href="https://www.linkedin.com/in/abishek2204/" target="_blank" title="LinkedIn" class="text-2xl text-blue-600 hover:text-blue-800">
         <i class="fab fa-linkedin"></i>
-    </a>
+      </a>
 
-    <!-- GitHub Icon -->
-    <a href="https://github.com/AbishekSathiyan/" target="_blank" title="GitHub" class="text-2xl text-gray-700 hover:text-gray-900">
+      <!-- GitHub Icon -->
+      <a href="https://github.com/AbishekSathiyan/" target="_blank" title="GitHub" class="text-2xl text-gray-700 hover:text-gray-900">
         <i class="fab fa-github"></i>
-    </a>
-</div>
-
-
+      </a>
+    </div>
   </section>
+
+  <script>
+    // Search functionality
+    document.getElementById('search-input').addEventListener('input', function(event) {
+      let searchQuery = event.target.value.toLowerCase();
+      let productCards = document.querySelectorAll('.product-card');
+      
+      productCards.forEach(function(card) {
+        let productName = card.querySelector('h3').textContent.toLowerCase();
+        
+        if (productName.includes(searchQuery)) {
+          card.style.display = 'block'; // Show card
+        } else {
+          card.style.display = 'none'; // Hide card
+        }
+      });
+    });
+  </script>
+
+  <!-- Link to External JS File -->
+  <script src="scripts.js"></script>
 </body>
 </html>
