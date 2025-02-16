@@ -104,44 +104,45 @@
   
     // EmailJS Initialization & Submission
     document.getElementById("contact-form").addEventListener("submit", function(event) {
-      event.preventDefault(); // Prevent default form submission
+  event.preventDefault(); // Prevent default form submission
 
-      if (!validateEmail()) {
-        alert("Invalid email! Please enter a valid email.");
-        return;
-      }
+  if (!validateEmail()) {
+    alert("Invalid email! Please enter a valid email.");
+    return;
+  }
 
-      let name = document.getElementById("name").value.trim();
-      let email = document.getElementById("email").value.trim();
-      let message = document.getElementById("message").value.trim();
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let message = document.getElementById("message").value.trim();
 
-      if (!name || !email || !message) {
-        alert("Please fill in all the fields!");
-        return;
-      }
+  if (!name || !email || !message) {
+    alert("Please fill in all the fields!");
+    return;
+  }
 
-      // Initialize EmailJS
-      emailjs.init("snTHEuCIgnl90M1Jk"); //Public Key
+  emailjs.init("snTHEuCIgnl90M1Jk"); // Your EmailJS User ID
 
-      // Send email
-      emailjs.send("service_064phx6", "template_7utm1ap", { //Service Id
-        from_name: name,
-        from_email: email,
-        message: message,
-      })
-      .then(response => {
-        alert("Email Sent Successfully!");
-        console.log("Email sent:", response);
-        
-        document.getElementById("name").value = "";
-        document.getElementById("email").value = "";
-        document.getElementById("message").value = "";
-      })
-      .catch(error => {
-        alert("Failed to send email. Check console.");
-        console.error("EmailJS Error:", error);
-      });
-    });
+  emailjs.send("service_064phx6", "template_tlz4xda", {
+    to_name: "Abishek",  // Replace with recipient's name
+    from_name: name,
+    from_email: email,
+    message: message,
+  })
+  .then(response => {
+    console.log("Email sent successfully:", response);
+    alert("Email Sent Successfully!");
+    document.getElementById("contact-form").reset();
+  })
+  .catch(error => {
+    console.error("EmailJS Error:", error);
+    alert("Failed to send email. Please check the console for errors.");
+  });
+
+  return false;
+});
+  </script>
+</body>
+</html>
   </script>
 </body>
 </html>
