@@ -150,13 +150,14 @@
     </section>
 
     <!-- Newsletter Section -->
-    <section class="bg-green-900 p-10 text-white">
+    <section class="bg-green-900 p-10 text-black">
         <h1 class="text-center text-3xl mb-5">Stay Updated</h1>
         <p class="text-center mb-5">Sign up for our newsletter and get the latest news and offers.</p>
 
-        <form onsubmit="window.location.href='contact.html'; return false;" class="max-w-sm mx-auto">
-            <input type="email" placeholder="Enter your email" class="p-2 w-full mb-4">
-            <button type="submit" class="bg-white text-green-900 p-2 w-full">Subscribe</button>
+        <form onsubmit="return validateEmail()" class="max-w-sm mx-auto">
+            <input id="email" type="email" placeholder="Enter your email" class="p-2 w-full mb-2 border border-gray-300 rounded">
+            <p id="error-message" class="text-red-600 text-sm hidden">Please enter a valid email address.</p>
+            <button type="submit" class="bg-white text-green-900 p-2 w-full mt-2 rounded">Subscribe</button>
         </form>
     </section>
 
@@ -175,6 +176,24 @@
         function closeNav() {
             document.getElementById("sidenav").style.right = "-50%";
         }
+
+        // Validate Email
+        function validateEmail() {
+        let email = document.getElementById("email").value;
+        let errorMessage = document.getElementById("error-message");
+
+        // Email validation regex
+        let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailPattern.test(email)) {
+            errorMessage.classList.remove("hidden"); // Show error message
+            return false; // Prevent form submission
+        }
+
+        // Redirect to next page if valid
+        window.location.href = "contact.html";
+        return false;
+    }
     </script>
 </body>
 
